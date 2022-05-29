@@ -16,26 +16,43 @@ const arrayObjectPegawai = require("./data-customer.json");
 function lakukanLooping(arrPegawai) {
   // ! JANGAN DIMODIFIKASI
   let dataYangAkanDilooping = arrPegawai;
-
+  //console.log(dataYangAkanDilooping)
   /*
     TODO 1: Buatlah sebuah variabel bernama "hasilLooping" 
       yang berisi gabungan nama depan dan belakang dari masing masing pegawai
 
       Contoh: ["Aisyah Nirmala", "Mansur Faisal", ...]
   */
-  let hasilLooping = null;
+  dataFullName = [];
+  dataYangAkanDilooping.map((data) => {
+    dataFullName.push(data.namaDepan + " " + data.namaBelakang)
+  })
+ console.log("ini data all",dataFullName)
+  let hasilLooping = dataFullName;
 
   /*
     TODO 2: Buatlah sebuah variabel bernama "jumlahPria"
       yang berisi jumlah pria dari masing masing pegawai
   */
-  let jumlahPria = null;
+  var dataJumlahPria = 0
+  dataYangAkanDilooping.map((data) => {
+   if(data.jenisKelamin === "M") {
+     dataJumlahPria++;
+   }
+  })
+  let jumlahPria = dataJumlahPria;
 
   /*
     TODO 3: Buatlah sebuah variabel bernama "jumlahWanita"
       yang berisi jumlah wanita dari masing masing pegawai
   */
-  let jumlahWanita = null;
+  var dataJumlahWanita = 0
+  dataYangAkanDilooping.map((data) => {
+    if(data.jenisKelamin === "F") {
+      dataJumlahWanita++;
+    }
+  })
+  let jumlahWanita = dataJumlahWanita;
 
   /*
     TODO 4: Buatlah sebuah variabel bernama "komentar"
@@ -48,7 +65,15 @@ function lakukanLooping(arrPegawai) {
       Apabila imbang, maka komentar akan berisi:
         "Jumlah Pria dan Wanita berimbang"
   */
-  let komentar = null;
+  var message;
+  if(jumlahPria > jumlahWanita) {
+    message = "Jumlah Pria lebih banyak dari Wanita"
+  } else if (jumlahPria < jumlahWanita) {
+    message = "Jumlah Wanita lebih banyak dari Pria"
+  } else {
+    message = "Jumlah Pria dan Wanita berimbang"
+  }
+  let komentar = message;
 
   // ! JANGAN DIMODIFIKASI
   return {
