@@ -27,7 +27,6 @@ function lakukanLooping(arrPegawai) {
   dataYangAkanDilooping.map((data) => {
     dataFullName.push(data.namaDepan + " " + data.namaBelakang)
   })
- console.log("ini data all",dataFullName)
   let hasilLooping = dataFullName;
 
   /*
